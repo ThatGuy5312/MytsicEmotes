@@ -114,19 +114,5 @@ namespace MysticEmotes
         }
 
         public static Color GetChangeColorA(Color original, float a) => new Color(original.r, original.g, original.b, a);
-
-        public static Texture2D LoadTexture(string path)
-        {
-            var texture = new Texture2D(2, 2);
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(path))
-                if (stream != null)
-                {
-                    var data = new byte[stream.Length];
-                    stream.Read(data, 0, data.Length);
-                    texture.LoadImage(data);
-                    return texture;
-                }
-            return null;
-        }
     }
 }
